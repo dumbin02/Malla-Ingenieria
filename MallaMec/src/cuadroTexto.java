@@ -3,50 +3,50 @@ import java.awt.*;
 
 
 public class cuadroTexto extends JPanel {
-    private Clases clase;  // The class object containing the data to display
-    private int width;     // Width of the square
-    private int height;    // Height of the square
+    private Clases clase;  // La clase(Objeto)
+    private int ancho;     // ancho de el contenedor(cuadro) Probablemente cambiar por ancho de pantalla para hacerlo mas legible
+    private int height;    // largo de el contenedor ---Igual que arriba cambiar probablemente
+    private int x;         // Poscicion x
+    private int y;         // Poscicion y
+    private Font font;
 
-    public cuadroTexto(Clases clase, int width, int height) {
+    public cuadroTexto(Clases clase, int width, int height, Font font) {
         this.clase = clase;
-        this.width = width;
+        this.ancho = width;
         this.height = height;
+        this.font = font;
         setPreferredSize(new Dimension(width, height));
-        setBackground(clase.getColor()); // Set the color from the class color property
+        setBackground(clase.getColor());
     }
 
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        pintarCuadro(g);
-    }
-
-    public void pintarCuadro(Graphics g) {
+    public static void pintarCuadro(Clases clase,Graphics g,int width, int height, Color color,Font font,int x,int y) {
         Graphics2D g2d = (Graphics2D) g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        // Draw background color
-        g2d.setColor(getBackground());
-        g2d.fillRect(0, 0, width, height);
+        // dibujar cuadrito
+        g2d.setColor(clase.getColor());
+        g2d.fillRect(x, y, width, height);
+        // dibujar borde cuadrito
+        g2d.setColor(new Color(0, 0, 0,190));
+        g2d.drawRect(x, y, width, height);
 
-        // Draw text
-        g2d.setColor(Color.WHITE);
-        Font font = new Font("Arial", Font.BOLD, 12);
+        // dibujar texto
+        g2d.setColor(Color.BLACK.brighter());
         g2d.setFont(font);
         FontMetrics metrics = g2d.getFontMetrics(font);
 
-        int rowHeight = height / 3;
-        int yName = rowHeight - metrics.getHeight() / 2 + metrics.getAscent();
-        int yCredits = rowHeight * 2 - metrics.getHeight() / 2 + metrics.getAscent();
-        int yID = rowHeight * 3 - metrics.getHeight() / 2 + metrics.getAscent();
+        int filaAltura = height / 6;
+        int yName =y + filaAltura - metrics.getHeight() / 2 + metrics.getAscent();
+        int yCredits =y + filaAltura * 2 - metrics.getHeight() / 2 + metrics.getAscent();
+        int yID =y + filaAltura * 3 - metrics.getHeight() / 2 + metrics.getAscent();
 
-        drawCenteredString(g2d, clase.getNombre(), width / 2, yName, metrics);
-        drawCenteredString(g2d, "Credits: " + clase.getCreditos(), width / 2, yCredits, metrics);
-        drawCenteredString(g2d, "ID: " + clase.getClase(), width / 2, yID, metrics);
+        drawCenteredString(g2d, clase.getNombre(), width, x, yName, metrics);
+        drawCenteredString(g2d, "Creditos: " + clase.getCreditos(), width, x, yCredits, metrics);
+        drawCenteredString(g2d, "ID: " + clase.getClase(), width, x, yID, metrics);
     }
 
-    private void drawCenteredString(Graphics g, String text, int x, int y, FontMetrics metrics) {
+    private static void drawCenteredString(Graphics g, String text,int anchoCuadro, int xCuadro, int yTexto, FontMetrics metrics) {
         int textWidth = metrics.stringWidth(text);
-        g.drawString(text, x - textWidth / 2, y);
+        g.drawString(text, xCuadro+(anchoCuadro - textWidth)/2, yTexto);
     }
 }

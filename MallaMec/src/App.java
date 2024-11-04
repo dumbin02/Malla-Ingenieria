@@ -20,19 +20,19 @@ public static void main(String[] args) throws Exception {
     }*/
 
     JFrame frame = new JFrame("Malla Ingenieria Mecatronica");
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Exit on close
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Cerrar al salir
 
-    // Set the frame size to the screen dimensions and maximize it
+    // Set Size al tamaño de la ventana del usuario
     frame.setSize(Toolkit.getDefaultToolkit().getScreenSize().width,    //Obtener lo ancho mas lo largo de la pantalla
                 (Toolkit.getDefaultToolkit().getScreenSize().height-Toolkit.getDefaultToolkit().getScreenInsets(frame.getGraphicsConfiguration()).bottom));
-    frame.setUndecorated(false); // Ensure window decorations are shown
-    frame.setResizable(false);
+    frame.setUndecorated(false); // que se vea la pestaña de arriba(x minimizar etc)
+    frame.setResizable(false); //que no se pueda modificar el tamaño
 
-
+    //instancia de Malla, añadir a la ventana
     Malla malla = new Malla();
     frame.add(malla);
 
-    // Make the frame visible
+    // Volver visible
     frame.setVisible(true);
 }
 }

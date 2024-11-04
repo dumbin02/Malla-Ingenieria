@@ -8,6 +8,7 @@ import java.util.Map;
 */
 
 public class Clases {
+
     private String Clase;
     private String Nombre;
     private double Creditos;
@@ -28,12 +29,13 @@ public class Clases {
     }
 
     public static Map<String, Clases> inicializarClases() {
+        Color AzulTranslucido = new Color(128, 197, 198, 120);
         //Iniciar array que devolveremos con nuestras clases
         Map<String, Clases> clasesMap = new HashMap<>();
 
         //Crear las clases que usaremos. -Agregar Co-Pre-PostRequisitos a las clases que corresponden-
         //CalculoDiferencial
-        clasesMap.put("CÁLCULO DIFERENCIAL", new Clases("MAT1402", "CÁLCULO DIFERENCIAL", 6, Color.BLUE));
+        clasesMap.put("CÁLCULO DIFERENCIAL", new Clases("MAT1402", "CÁLCULO DIFERENCIAL", 6, AzulTranslucido));
         //CALCULO INTEGRAL
         clasesMap.put("CÁLCULO INTEGRAL", new Clases("MAT1403", "CÁLCULO INTEGRAL", 6, Color.BLUE));
         //CALCULO MULTIVARIADO
