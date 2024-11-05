@@ -23,8 +23,7 @@ public static void main(String[] args) throws Exception {
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Cerrar al salir
 
     // Set Size al tamaño de la ventana del usuario
-    frame.setSize(Toolkit.getDefaultToolkit().getScreenSize().width,    //Obtener lo ancho mas lo largo de la pantalla
-                (Toolkit.getDefaultToolkit().getScreenSize().height-Toolkit.getDefaultToolkit().getScreenInsets(frame.getGraphicsConfiguration()).bottom));
+    frame.setSize(1520,820);
     frame.setUndecorated(false); // que se vea la pestaña de arriba(x minimizar etc)
     frame.setResizable(false); //que no se pueda modificar el tamaño
 

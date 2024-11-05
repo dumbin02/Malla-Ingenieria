@@ -4,8 +4,8 @@ import java.awt.*;
 
 public class cuadroTexto extends JPanel {
     private Clases clase;  // La clase(Objeto)
-    private int ancho;     // ancho de el contenedor(cuadro) Probablemente cambiar por ancho de pantalla para hacerlo mas legible
-    private int height;    // largo de el contenedor ---Igual que arriba cambiar probablemente
+    private int ancho;     // ancho del contenedor(cuadro) Probablemente cambiar por ancho de pantalla para hacerlo mas legible
+    private int height;    // largo del contenedor ---Igual que arriba cambiar probablemente
     private int x;         // Poscicion x
     private int y;         // Poscicion y
     private Font font;
@@ -25,20 +25,22 @@ public class cuadroTexto extends JPanel {
 
         // dibujar cuadrito
         g2d.setColor(clase.getColor());
-        g2d.fillRect(x, y, width, height);
+        g2d.fillRoundRect(x, y, width, height,40,40);
         // dibujar borde cuadrito
-        g2d.setColor(new Color(0, 0, 0,190));
-        g2d.drawRect(x, y, width, height);
+        g2d.setColor(clase.getColor().darker());
+        g2d.drawRoundRect(x, y, width, height,40,40);
 
         // dibujar texto
         g2d.setColor(Color.BLACK.brighter());
         g2d.setFont(font);
         FontMetrics metrics = g2d.getFontMetrics(font);
 
-        int filaAltura = height / 6;
-        int yName =y + filaAltura - metrics.getHeight() / 2 + metrics.getAscent();
-        int yCredits =y + filaAltura * 2 - metrics.getHeight() / 2 + metrics.getAscent();
-        int yID =y + filaAltura * 3 - metrics.getHeight() / 2 + metrics.getAscent();
+        int alturaStrings = metrics.getAscent()*3;
+        int yName =y+metrics.getAscent()+(height-alturaStrings)/2;
+        //int yName2 = yName+metrics.getAscent();
+        int yCredits =yName+metrics.getAscent();
+        int yID =yCredits+metrics.getAscent();
+
 
         drawCenteredString(g2d, clase.getNombre(), width, x, yName, metrics);
         drawCenteredString(g2d, "Creditos: " + clase.getCreditos(), width, x, yCredits, metrics);

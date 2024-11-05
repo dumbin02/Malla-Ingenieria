@@ -31,7 +31,7 @@ public class Malla extends JPanel implements ActionListener {
     // Constructor de malla
     Malla() throws FontFormatException, IOException {
         // Imagen de fondito
-        backgroundImg = new ImageIcon(getClass().getResource("background2.jpg")).getImage();
+        backgroundImg = new ImageIcon(getClass().getResource("background4.jpg")).getImage();
         backgroundOriginalAncho = backgroundImg.getWidth(null);
         backgroundOriginalLargo = backgroundImg.getHeight(null);
         aspectRatio = (double) backgroundOriginalAncho / backgroundOriginalLargo;
@@ -45,11 +45,11 @@ public class Malla extends JPanel implements ActionListener {
         fontStream = getClass().getResourceAsStream("/prmR.ttf");
         fuente1B = Font.createFont(Font.TRUETYPE_FONT, fontStream).deriveFont(40f);
         fontStream = getClass().getResourceAsStream("/font4.otf");
-        cuadroFuente = Font.createFont(Font.TRUETYPE_FONT, fontStream).deriveFont(17f);
+        cuadroFuente = Font.createFont(Font.TRUETYPE_FONT, fontStream).deriveFont(13f);
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(fuente1B);
 
-        cuadroTexto cuadroTexto = new cuadroTexto(mapa.get("CÁLCULO DIFERENCIAL"),100,100,cuadroFuente);
+
 
         //30 frames por segundo timer, loop para la aplicacion(se actualiza la imagen 30 veces por segundo)
         gameLoop = new Timer(1000 / 120, this);
@@ -105,8 +105,8 @@ public class Malla extends JPanel implements ActionListener {
             }
         }
         //test de materia no terminado
-        for(int i=0; i<listaClases1.size(); i++){
-            cuadroTexto.pintarCuadro(listaClases1.get(i),g2d,cuadroAncho/10-10,cuadroLargo/12,listaClases1.get(i).getColor(),cuadroFuente, 4,90+(i*90));
+        for(int i=0; i<10; i++){
+            cuadroTexto.pintarCuadro(listaClases1.get(1),g2d,cuadroAncho/10-10,cuadroLargo/12,listaClases1.get(1).getColor(),cuadroFuente, 4,85+i*((cuadroLargo/12)+5));
 
         }
 

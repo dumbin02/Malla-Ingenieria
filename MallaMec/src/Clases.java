@@ -37,11 +37,11 @@ public class Clases {
         //CalculoDiferencial
         clasesMap.put("CÁLCULO DIFERENCIAL", new Clases("MAT1402", "CÁLCULO DIFERENCIAL", 6, AzulTranslucido));
         //CALCULO INTEGRAL
-        clasesMap.put("CÁLCULO INTEGRAL", new Clases("MAT1403", "CÁLCULO INTEGRAL", 6, Color.BLUE));
+        clasesMap.put("CÁLCULO INTEGRAL", new Clases("MAT1403", "CÁLCULO INTEGRAL", 6, AzulTranslucido));
         //CALCULO MULTIVARIADO
-        clasesMap.put("CÁLCULO MULTIVARIADO", new Clases("MAT2401", "CÁLCULO MULTIVARIADO", 6, Color.BLUE));
+        clasesMap.put("CÁLCULO MULTIVARIADO", new Clases("MAT2401", "CÁLCULO MULTIVARIADO", 6, AzulTranslucido));
         //METODOS NUMERICOS
-        clasesMap.put("MÉTODOS NUMÉRICOS", new Clases("MAT3402", "MÉTODOS NUMÉRICOS", 3.5, Color.BLUE));
+        clasesMap.put("MÉTODOS NUMÉRICOS", new Clases("MAT3402", "MÉTODOS NUMÉRICOS", 3.5, AzulTranslucido));
 
         //Post-Co-PreRequisitos de las clases Despues de crearlas
         //Calculo Integral
