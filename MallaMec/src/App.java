@@ -1,13 +1,11 @@
 import javax.swing.*;
-import java.awt.*;
-import java.util.HashMap;
 import java.util.Map;
 
 public class App {
 public static void main(String[] args) throws Exception {
 
-    /*
-    Map<String,Clases> mapa = Clases.clasesMecatronica(Clases.inicializarClases());
+
+    /*Map<String,Clases> mapa = Clases.inicializarMecatronica(Clases.inicializarClases());
     for (Clases clase : mapa.values()) {
         System.out.println(clase.getClase());
         System.out.println(clase.getNombre());
@@ -30,6 +28,7 @@ public static void main(String[] args) throws Exception {
     //instancia de Malla, añadir a la ventana
     Malla malla = new Malla();
     frame.add(malla);
+    malla.requestFocus();
 
     // Volver visible
     frame.setVisible(true);

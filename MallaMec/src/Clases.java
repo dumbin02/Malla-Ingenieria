@@ -14,9 +14,9 @@ public class Clases {
     private double Creditos;
     private int Semestre;
     private Color color;
-    private ArrayList<String> preRequisitos;
-    private ArrayList<String> postRequisitos;
-    private ArrayList<String> coRequisitos;
+    private ArrayList<Clases> preRequisitos;
+    private ArrayList<Clases> postRequisitos;
+    private ArrayList<Clases> coRequisitos;
     public Clases(String Clase, String Nombre, double Creditos, Color color) {
         this.Clase = Clase;
         this.Nombre = Nombre;
@@ -29,11 +29,13 @@ public class Clases {
     }
 
     public static Map<String, Clases> inicializarClases() {
-        Color AzulTranslucido = new Color(128, 197, 198, 120);
+        Color AzulTranslucido = new Color(128, 197, 198, 170);
         //Iniciar array que devolveremos con nuestras clases
         Map<String, Clases> clasesMap = new HashMap<>();
 
         //Crear las clases que usaremos. -Agregar Co-Pre-PostRequisitos a las clases que corresponden-
+        //ALGORITMOS Y PROGRAMACION
+        clasesMap.put("ALGORITMOS", new Clases("SIS1401", "ALGORITMOS", 6, AzulTranslucido));
         //CalculoDiferencial
         clasesMap.put("CÁLCULO DIFERENCIAL", new Clases("MAT1402", "CÁLCULO DIFERENCIAL", 6, AzulTranslucido));
         //CALCULO INTEGRAL
@@ -43,22 +45,25 @@ public class Clases {
         //METODOS NUMERICOS
         clasesMap.put("MÉTODOS NUMÉRICOS", new Clases("MAT3402", "MÉTODOS NUMÉRICOS", 3.5, AzulTranslucido));
 
+
         //Post-Co-PreRequisitos de las clases Despues de crearlas
         //Calculo Integral
-        clasesMap.get("CÁLCULO DIFERENCIAL").postRequisitos.add("CÁLCULO INTEGRAL");
+        clasesMap.get("CÁLCULO DIFERENCIAL").postRequisitos.add(clasesMap.get("CÁLCULO INTEGRAL"));
         //Calculo Integral
-        clasesMap.get("CÁLCULO INTEGRAL").preRequisitos.add("CÁLCULO DIFERENCIAL");
-        clasesMap.get("CÁLCULO INTEGRAL").postRequisitos.add("CÁLCULO MULTIVARIADO");
-        clasesMap.get("CÁLCULO INTEGRAL").postRequisitos.add("MÉTODOS NUMÉRICOS");
+        clasesMap.get("CÁLCULO INTEGRAL").preRequisitos.add(clasesMap.get("CÁLCULO DIFERENCIAL"));
+        clasesMap.get("CÁLCULO INTEGRAL").postRequisitos.add(clasesMap.get("CÁLCULO MULTIVARIADO"));
+        clasesMap.get("CÁLCULO INTEGRAL").postRequisitos.add(clasesMap.get("MÉTODOS NUMÉRICOS"));
         //Calculo Multivariado
-        clasesMap.get("CÁLCULO MULTIVARIADO").preRequisitos.add("CÁLCULO INTEGRAL");
+        clasesMap.get("CÁLCULO MULTIVARIADO").preRequisitos.add(clasesMap.get("CÁLCULO INTEGRAL"));
         //Metodos Numericos
-        clasesMap.get("MÉTODOS NUMÉRICOS").preRequisitos.add("CÁLCULO INTEGRAL");
+        clasesMap.get("MÉTODOS NUMÉRICOS").preRequisitos.add(clasesMap.get("CÁLCULO INTEGRAL"));
+        //ALGORITMOS Y PROGRAMACION
+        clasesMap.get("ALGORITMOS").postRequisitos.add(clasesMap.get("MÉTODOS NUMÉRICOS"));
 
         //Regresar Listas de clases
         return clasesMap;
     }
-    public static Map<String, Clases> clasesMecatronica(Map<String, Clases> clases) {
+    public static Map<String, Clases> inicializarMecatronica(Map<String, Clases> clases) {
         //Iniciar array que devolveremos con nuestras clases
         Map<String, Clases> clasesMap = new HashMap<>();
 
@@ -71,8 +76,28 @@ public class Clases {
         clasesMap.put("CÁLCULO MULTIVARIADO",clases.get("CÁLCULO MULTIVARIADO"));
         clases.get("MÉTODOS NUMÉRICOS").setSemestre(4);   //CalculoDiferencial
         clasesMap.put("MÉTODOS NUMÉRICOS",clases.get("MÉTODOS NUMÉRICOS"));
+        clases.get("ALGORITMOS").setSemestre(1);   //CalculoDiferencial
+        clasesMap.put("ALGORITMOS",clases.get("ALGORITMOS"));
+
 
         return clasesMap;  //REGRESAR LAS CLASES
+    }
+    public static ArrayList<ArrayList<CuadroTexto>> CuadrosSemestre(ArrayList<CuadroTexto> cuadrosTexto) {
+        ArrayList<ArrayList<CuadroTexto>> clasesSemestre = new ArrayList<>();
+        // Inicializar listas vacías para cada semestre
+        for (int i = 0; i < 10; i++) {
+            clasesSemestre.add(new ArrayList<>());
+        }
+        // Asignar cuadros a su correspondiente semestre
+        for (CuadroTexto cuadro : cuadrosTexto) {
+            int semestre = cuadro.getClase().getSemestre();
+            if (semestre >= 1 && semestre <= 10) { // Asegurarse de que el semestre esté en el rango esperado
+                clasesSemestre.get(semestre - 1).add(cuadro);
+                System.out.print(cuadro.getClase().getSemestre()+" ");
+                System.out.println(cuadro.getClase().getNombre());
+            }
+        }
+        return clasesSemestre;
     }
 
     public String getClase() {
@@ -105,23 +130,24 @@ public class Clases {
     public void setColor(Color color) {
         this.color = color;
     }
-    public ArrayList<String> getPreRequisitos() {
+    public ArrayList<Clases> getPreRequisitos() {
         return preRequisitos;
     }
-    public void setPreRequisitos(ArrayList<String> preRequisitos) {
+    public void setPreRequisitos(ArrayList<Clases> preRequisitos) {
         this.preRequisitos = preRequisitos;
     }
-    public ArrayList<String> getPostRequisitos() {
+    public ArrayList<Clases> getPostRequisitos() {
         return postRequisitos;
     }
-    public void setPostRequisitos(ArrayList<String> postRequisitos) {
+    public void setPostRequisitos(ArrayList<Clases> postRequisitos) {
         this.postRequisitos = postRequisitos;
     }
-    public ArrayList<String> getCoRequisitos() {
+    public ArrayList<Clases> getCoRequisitos() {
         return coRequisitos;
     }
-    public void setCoRequisitos(ArrayList<String> coRequisitos) {
+    public void setCoRequisitos(ArrayList<Clases> coRequisitos) {
         this.coRequisitos = coRequisitos;
     }
+
 
 }
