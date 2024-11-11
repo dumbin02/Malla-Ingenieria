@@ -162,14 +162,7 @@ public class CuadroTexto {
         int textWidth = metrics.stringWidth(text);
         g.drawString(text, xCuadro+(anchoCuadro - textWidth)/2, yTexto);
     }
-    public static ArrayList<CuadroTexto> cuadrosLista(Map<String,Clases> mapa, int ancho, int alto, Font font){
-        ArrayList<CuadroTexto> cuadrolista = new ArrayList<>();
-        Collection<Clases> valores = mapa.values();
-        for (Clases clase : valores) {
-            cuadrolista.add(new CuadroTexto(clase,ancho, alto, font));
-        }
-        return cuadrolista;
-    }
+
 
     public Clases getClase() {
         return clase;

@@ -70,8 +70,8 @@ public class Clases {
         clasesMap.put("DISEÑO POR COMPUTADORA", new Clases("IMEC1401", "DISEÑO POR COMPUTADORA", 3, bloqueProfCol));
         //ESTÁTICA
         clasesMap.put("ESTÁTICA", new Clases("FIS1402", "ESTÁTICA", 9, bloqueProfCol));
-        //TALLER2
-        clasesMap.put("TALLER2", new Clases("", "TALLER", 3, tallerCol));
+        //TALLER 2
+        clasesMap.put("TALLER 2", new Clases("", "TALLER", 3, tallerCol));
         //ELECTIVA
         clasesMap.put("ELECTIVA ANAHUAC", new Clases("", "ELECTIVA ANAHUAC", 6, electivaAnaCol));
         //HABILIDADES PARA EL EMPRENDIMIENTO
@@ -257,150 +257,178 @@ public class Clases {
         //Regresar Listas de clases
         return clasesMap;
     }
-    public static Map<String, Clases> inicializarMecatronica(Map<String, Clases> clases) {
+    public static ArrayList<ArrayList<CuadroTexto>> inicializarMecatronica(Map<String, Clases> clases, int ancho, int alto, Font font ) {
         //Iniciar array que devolveremos con nuestras clases
-        Map<String, Clases> clasesMap = new HashMap<>();
+        ArrayList<ArrayList<CuadroTexto>> FINAL = new ArrayList<>();
+        ArrayList<CuadroTexto> cuadrosMecatronica1 = new ArrayList<>();
+        ArrayList<CuadroTexto> cuadrosMecatronica2 = new ArrayList<>();
+        ArrayList<CuadroTexto> cuadrosMecatronica3 = new ArrayList<>();
+        ArrayList<CuadroTexto> cuadrosMecatronica4 = new ArrayList<>();
+        ArrayList<CuadroTexto> cuadrosMecatronica5 = new ArrayList<>();
+        ArrayList<CuadroTexto> cuadrosMecatronica6 = new ArrayList<>();
+        ArrayList<CuadroTexto> cuadrosMecatronica7 = new ArrayList<>();
+        ArrayList<CuadroTexto> cuadrosMecatronica8 = new ArrayList<>();
+        ArrayList<CuadroTexto> cuadrosMecatronica9 = new ArrayList<>();
+        ArrayList<CuadroTexto> cuadrosMecatronica10 = new ArrayList<>();
+
 
         //Asignar Semestres de Mecatronica
-        clases.get("SER UNIVERSITARIO").setSemestre(1);   //SER UNIVERSITARIO
-        clasesMap.put("SER UNIVERSITARIO",clases.get("SER UNIVERSITARIO"));
-        clases.get("FORMACIÓN UNIVERSITARIA A").setSemestre(1);   //FORMACIÓN UNIVERSITARIA A
-        clasesMap.put("FORMACIÓN UNIVERSITARIA A",clases.get("FORMACIÓN UNIVERSITARIA A"));
-        clases.get("LIDERAZGO Y DESARROLLO").setSemestre(1);   //LIDERAZGO Y DESARROLLO
-        clasesMap.put("LIDERAZGO Y DESARROLLO",clases.get("LIDERAZGO Y DESARROLLO"));
-        clases.get("QUÍMICA").setSemestre(1);   //QUÍMICA
-        clasesMap.put("QUÍMICA",clases.get("QUÍMICA"));
-        clases.get("TALLER O ACTIVIDAD").setSemestre(1);   //TALLER O ACTIVIDAD
-        clasesMap.put("TALLER O ACTIVIDAD",clases.get("TALLER O ACTIVIDAD"));
-        clases.get("ÁlGEBRA LINEAL").setSemestre(1);   //ALGEBRA LINEAL
-        clasesMap.put("ÁlGEBRA LINEAL",clases.get("ÁlGEBRA LINEAL"));
-        clases.get("ALGORITMOS").setSemestre(1);   //ALGORITMOS
-        clasesMap.put("ALGORITMOS",clases.get("ALGORITMOS"));
         clases.get("CÁLCULO DIFERENCIAL").setSemestre(1);   //CalculoDiferencial
-        clasesMap.put("CÁLCULO DIFERENCIAL",clases.get("CÁLCULO DIFERENCIAL"));
-        clases.get("CÁLCULO INTEGRAL").setSemestre(2);   //CÁLCULO INTEGRAL
-        clasesMap.put("CÁLCULO INTEGRAL",clases.get("CÁLCULO INTEGRAL"));
-        clases.get("CÁLCULO MULTIVARIADO").setSemestre(3);   //CÁLCULO MULTIVARIADO
-        clasesMap.put("CÁLCULO MULTIVARIADO",clases.get("CÁLCULO MULTIVARIADO"));
-        clases.get("MÉTODOS NUMÉRICOS").setSemestre(4);   //MÉTODOS NUMÉRICOS
-        clasesMap.put("MÉTODOS NUMÉRICOS",clases.get("MÉTODOS NUMÉRICOS"));
-        clases.get("PROBABILIDAD Y ESTADISTICA").setSemestre(2);   //ALGORITMOS
-        clasesMap.put("PROBABILIDAD Y ESTADISTICA",clases.get("PROBABILIDAD Y ESTADISTICA"));
-        clases.get("DISEÑO POR COMPUTADORA").setSemestre(2);   //ALGORITMOS
-        clasesMap.put("DISEÑO POR COMPUTADORA",clases.get("DISEÑO POR COMPUTADORA"));
-        clases.get("ESTÁTICA").setSemestre(2);   //ALGORITMOS
-        clasesMap.put("ESTÁTICA",clases.get("ESTÁTICA"));
-        clases.get("TALLER2").setSemestre(2);   //ALGORITMOS
-        clasesMap.put("TALLER2",clases.get("TALLER2"));
-        clases.get("ELECTIVA ANAHUAC").setSemestre(2);   //ALGORITMOS
-        clasesMap.put("ELECTIVA ANAHUAC",clases.get("ELECTIVA ANAHUAC"));
-        clases.get("HABILIDADES PARA EL EMPRENDIMIENTO").setSemestre(2);   //ALGORITMOS
-        clasesMap.put("HABILIDADES PARA EL EMPRENDIMIENTO",clases.get("HABILIDADES PARA EL EMPRENDIMIENTO"));
-        clases.get("ANTROPOLOGÍA FUNDAMENTAL").setSemestre(2);   //ALGORITMOS
-        clasesMap.put("ANTROPOLOGÍA FUNDAMENTAL",clases.get("ANTROPOLOGÍA FUNDAMENTAL"));
-        clases.get("ELECTIVA INTERDISCIPLINARIA").setSemestre(3);   //ELECTIVA INTERDISCIPLINARIA
-        clasesMap.put("ELECTIVA INTERDISCIPLINARIA",clases.get("ELECTIVA INTERDISCIPLINARIA"));
-        clases.get("CIRCUITOS ELÉCTRICOS").setSemestre(3);   //CIRCUITOS ELÉCTRICOS
-        clasesMap.put("CIRCUITOS ELÉCTRICOS",clases.get("CIRCUITOS ELÉCTRICOS"));
-        clases.get("DINÁMICA").setSemestre(3);   //DINÁMICA
-        clasesMap.put("DINÁMICA",clases.get("DINÁMICA"));
-        clases.get("TALLER3").setSemestre(3);   //TALLER3
-        clasesMap.put("TALLER3",clases.get("TALLER3"));
-        clases.get("ECUACIONES DIFERENCIALES").setSemestre(3);   //ECUACIONES DIFERENCIALES
-        clasesMap.put("ECUACIONES DIFERENCIALES",clases.get("ECUACIONES DIFERENCIALES"));
-        clases.get("LIDERAZGO Y EQUIPO...").setSemestre(3);   //LIDERAZGO Y EQUIPO...
-        clasesMap.put("LIDERAZGO Y EQUIPO...",clases.get("LIDERAZGO Y EQUIPO..."));
-        clases.get("ÉTICA").setSemestre(3);   //ÉTICA
-        clasesMap.put("ÉTICA",clases.get("ÉTICA"));
-        clases.get("ELECTRICIDAD Y MAGNETISMO").setSemestre(4);   //ELECTRICIDAD Y MAGNETISMO
-        clasesMap.put("ELECTRICIDAD Y MAGNETISMO",clases.get("ELECTRICIDAD Y MAGNETISMO"));
-        clases.get("PROGRAMACIÓN MICROCONTROLADORES").setSemestre(4);   //PROGRAMACIÓN MICROCONTROLADORES
-        clasesMap.put("PROGRAMACIÓN MICROCONTROLADORES",clases.get("PROGRAMACIÓN MICROCONTROLADORES"));
-        clases.get("DISPOSITIVOS SEMICONDCTORES").setSemestre(4);   //DISPOSITIVOS SEMICONDCTORES
-        clasesMap.put("DISPOSITIVOS SEMICONDCTORES",clases.get("DISPOSITIVOS SEMICONDCTORES"));
-        clases.get("INGENIERÍA DE MATERIALES").setSemestre(4);   //INGENIERÍA DE MATERIALES
-        clasesMap.put("INGENIERÍA DE MATERIALES",clases.get("INGENIERÍA DE MATERIALES"));
-        clases.get("TERMODINÁMICA").setSemestre(4);   //TERMODINÁMICA
-        clasesMap.put("TERMODINÁMICA",clases.get("TERMODINÁMICA"));
-        clases.get("EMPRENDIMIENTO E INNOVACIÓN").setSemestre(4);   //EMPRENDIMIENTO E INNOVACIÓN
-        clasesMap.put("EMPRENDIMIENTO E INNOVACIÓN",clases.get("EMPRENDIMIENTO E INNOVACIÓN"));
-        clases.get("FORMACIÓN UNIVERSITARIA B").setSemestre(4);   //FORMACIÓN UNIVERSITARIA B
-        clasesMap.put("FORMACIÓN UNIVERSITARIA B",clases.get("FORMACIÓN UNIVERSITARIA B"));
-        clases.get("MEDICIÓN E INTRUMENTA...").setSemestre(5);   //MEDICIÓN E INTRUMENTA...
-        clasesMap.put("MEDICIÓN E INTRUMENTA...",clases.get("MEDICIÓN E INTRUMENTA..."));
-        clases.get("SISTEMAS ELECTRONEUMA...").setSemestre(5);   //SISTEMAS ELECTRONEUMA...
-        clasesMap.put("SISTEMAS ELECTRONEUMA...",clases.get("SISTEMAS ELECTRONEUMA..."));
-        clases.get("MECÁNICA DE MATERIALES").setSemestre(5);   //MECÁNICA DE MATERIALES
-        clasesMap.put("MECÁNICA DE MATERIALES",clases.get("MECÁNICA DE MATERIALES"));
-        clases.get("DISEÑO DE MECANISMOS").setSemestre(5);   //DISEÑO DE MECANISMOS
-        clasesMap.put("DISEÑO DE MECANISMOS",clases.get("DISEÑO DE MECANISMOS"));
-        clases.get("PROCESOS DE MANUFACTURA").setSemestre(5);   //PROCESOS DE MANUFACTURA
-        clasesMap.put("PROCESOS DE MANUFACTURA",clases.get("PROCESOS DE MANUFACTURA"));
-        clases.get("TRANSFORMADAS INTEGRALES").setSemestre(5);   //TRANSFORMADAS INTEGRALES
-        clasesMap.put("TRANSFORMADAS INTEGRALES",clases.get("TRANSFORMADAS INTEGRALES"));
-        clases.get("ELECTIVA ANÁHUAC2").setSemestre(5);   //ELECTIVA ANÁHUAC2
-        clasesMap.put("ELECTIVA ANÁHUAC2",clases.get("ELECTIVA ANÁHUAC2"));
-        clases.get("HUMANISMO CLÁSICO Y CONTEMPORÁNEO").setSemestre(5);   //HUMANISMO CLÁSICO Y CONTEMPORÁNEO
-        clasesMap.put("HUMANISMO CLÁSICO Y CONTEMPORÁNEO",clases.get("HUMANISMO CLÁSICO Y CONTEMPORÁNEO"));
-        clases.get("ELECTIVA INTERDISCIPLINARIA2").setSemestre(6);   //ELECTIVA INTERDISCIPLINARIA2
-        clasesMap.put("ELECTIVA INTERDISCIPLINARIA2",clases.get("ELECTIVA INTERDISCIPLINARIA2"));
-        clases.get("MANUFACTURA ASISSTIDA POR COMPUTADORA").setSemestre(6);   //MANUFACTURA ASISSTIDA POR COMPUTADORA
-        clasesMap.put("MANUFACTURA ASISSTIDA POR COMPUTADORA",clases.get("MANUFACTURA ASISSTIDA POR COMPUTADORA"));
-        clases.get("DISEÑO DE COMPONENTES MECÁNICOS").setSemestre(6);   //DISEÑO DE COMPONENTES MECÁNICOS
-        clasesMap.put("DISEÑO DE COMPONENTES MECÁNICOS",clases.get("DISEÑO DE COMPONENTES MECÁNICOS"));
-        clases.get("ELCTRÓNICA ANALÓGICA").setSemestre(6);   //ELCTRÓNICA ANALÓGICA
-        clasesMap.put("ELCTRÓNICA ANALÓGICA",clases.get("ELCTRÓNICA ANALÓGICA"));
-        clases.get("CIRCUITOS DIGITALES").setSemestre(6);   //CIRCUITOS DIGITALES
-        clasesMap.put("CIRCUITOS DIGITALES",clases.get("CIRCUITOS DIGITALES"));
-        clases.get("DINÁMICA DE SISTEMAS MECATRÓNICOS").setSemestre(6);   //DINÁMICA DE SISTEMAS MECATRÓNICOS
-        clasesMap.put("DINÁMICA DE SISTEMAS MECATRÓNICOS",clases.get("DINÁMICA DE SISTEMAS MECATRÓNICOS"));
-        clases.get("ELECTIVA PROFESIONAL 1").setSemestre(6);   //ELECTIVA PROFESIONAL 1
-        clasesMap.put("ELECTIVA PROFESIONAL 1",clases.get("ELECTIVA PROFESIONAL 1"));
-        clases.get("PERSONA Y TRASCENDENCIA").setSemestre(6);   //PERSONA Y TRASCENDENCIA
-        clasesMap.put("PERSONA Y TRASCENDENCIA",clases.get("PERSONA Y TRASCENDENCIA"));
-        clases.get("RESPONSABILIDAD SOCIAL").setSemestre(7);   //RESPONSABILIDAD SOCIAL
-        clasesMap.put("RESPONSABILIDAD SOCIAL",clases.get("RESPONSABILIDAD SOCIAL"));
-        clases.get("MÁQUINAS ELÉTRICAS").setSemestre(7);   //MÁQUINAS ELÉTRICAS
-        clasesMap.put("MÁQUINAS ELÉTRICAS",clases.get("MÁQUINAS ELÉTRICAS"));
-        clases.get("AUTOMATIZACIÓN").setSemestre(7);   //AUTOMATIZACIÓN
-        clasesMap.put("AUTOMATIZACIÓN",clases.get("AUTOMATIZACIÓN"));
-        clases.get("GESSTIÓN DE PROYECTOS DE INVESTIGACIÓN Y PATENTAMIENTO").setSemestre(7);   //GESSTIÓN DE PROYECTOS DE INVESTIGACIÓN Y PATENTAMIENTO
-        clasesMap.put("GESSTIÓN DE PROYECTOS DE INVESTIGACIÓN Y PATENTAMIENTO",clases.get("GESSTIÓN DE PROYECTOS DE INVESTIGACIÓN Y PATENTAMIENTO"));
-        clases.get("DISEÑO DE INTERFACES ANALÓGICAS Y DIGITALES").setSemestre(7);   //DISEÑO DE INTERFACES ANALÓGICAS Y DIGITALES
-        clasesMap.put("DISEÑO DE INTERFACES ANALÓGICAS Y DIGITALES",clases.get("DISEÑO DE INTERFACES ANALÓGICAS Y DIGITALES"));
-        clases.get("PROCESAMIENTO DIGITAL DE SEÑALES").setSemestre(7);   //PROCESAMIENTO DIGITAL DE SEÑALES
-        clasesMap.put("PROCESAMIENTO DIGITAL DE SEÑALES",clases.get("PROCESAMIENTO DIGITAL DE SEÑALES"));
-        clases.get("CONTROL APLICADO").setSemestre(7);   //CONTROL APLICADO
-        clasesMap.put("CONTROL APLICADO",clases.get("CONTROL APLICADO"));
-        clases.get("ELECTIVA PROFESIONAL 2").setSemestre(7);   //ELECTIVA PROFESIONAL 2
-        clasesMap.put("ELECTIVA PROFESIONAL 2",clases.get("ELECTIVA PROFESIONAL 2"));
-        clases.get("PRÁCTICUM I METODOLOGIA DISEÑO").setSemestre(8);   //PRÁCTICUM I METODOLOGIA DISEÑO
-        clasesMap.put("PRÁCTICUM I METODOLOGIA DISEÑO",clases.get("PRÁCTICUM I METODOLOGIA DISEÑO"));
-        clases.get("SISTEMAS EMBEBIDOS").setSemestre(8);   //SISTEMAS EMBEBIDOS
-        clasesMap.put("SISTEMAS EMBEBIDOS",clases.get("SISTEMAS EMBEBIDOS"));
-        clases.get("SISTEMAS DE VISIÓN INDUSTRIAL").setSemestre(8);   //SISTEMAS DE VISIÓN INDUSTRIAL
-        clasesMap.put("SISTEMAS DE VISIÓN INDUSTRIAL",clases.get("SISTEMAS DE VISIÓN INDUSTRIAL"));
-        clases.get("ELECTRÓNICA DE POTENCIA").setSemestre(8);   //ELECTRÓNICA DE POTENCIA
-        clasesMap.put("ELECTRÓNICA DE POTENCIA",clases.get("ELECTRÓNICA DE POTENCIA"));
-        clases.get("ROBÓTICA INDUSTRIAL Y DE SERVICIO").setSemestre(8);   //ROBÓTICA INDUSTRIAL Y DE SERVICIO
-        clasesMap.put("ROBÓTICA INDUSTRIAL Y DE SERVICIO",clases.get("ROBÓTICA INDUSTRIAL Y DE SERVICIO"));
-        clases.get("ELECTIVA PROFESIONAL 3").setSemestre(8);   //ELECTIVA PROFESIONAL 3
-        clasesMap.put("ELECTIVA PROFESIONAL 3",clases.get("ELECTIVA PROFESIONAL 3"));
-        clases.get("PRÁCTICUM II PROYECTO DE DISEÑO").setSemestre(9);   //PRÁCTICUM II PROYECTO DE DISEÑO
-        clasesMap.put("PRÁCTICUM II PROYECTO DE DISEÑO",clases.get("PRÁCTICUM II PROYECTO DE DISEÑO"));
-        clases.get("INNOVACIÓN TECNOLÓGICA").setSemestre(9);   //INNOVACIÓN TECNOLÓGICA
-        clasesMap.put("INNOVACIÓN TECNOLÓGICA",clases.get("INNOVACIÓN TECNOLÓGICA"));
-        clases.get("REGIONAL").setSemestre(9);   //REGIONAL
-        clasesMap.put("REGIONAL",clases.get("REGIONAL"));
-        clases.get("REGIONAL 2").setSemestre(9);   //REGIONAL 2
-        clasesMap.put("REGIONAL 2",clases.get("REGIONAL 2"));
-        clases.get("ELECTIVA INTERDISCIPLINARIA3").setSemestre(9);   //ELECTIVA INTERDISCIPLINARIA3
-        clasesMap.put("ELECTIVA INTERDISCIPLINARIA3",clases.get("ELECTIVA INTERDISCIPLINARIA3"));
-        clases.get("ELECTIVA PROFESIONAL 4").setSemestre(9);   //ELECTIVA PROFESIONAL 4
-        clasesMap.put("ELECTIVA PROFESIONAL 4",clases.get("ELECTIVA PROFESIONAL 4"));
-        
+        cuadrosMecatronica1.add(0,new CuadroTexto(clases.get("CÁLCULO DIFERENCIAL"),ancho,alto,font));
+        clases.get("ALGORITMOS").setSemestre(1);   //ALGORITMOS
+        cuadrosMecatronica1.add(1,new CuadroTexto(clases.get("ALGORITMOS"),ancho,alto,font));
+        clases.get("ÁlGEBRA LINEAL").setSemestre(1);   //ALGEBRA LINEAL
+        cuadrosMecatronica1.add(2,new CuadroTexto(clases.get("ÁlGEBRA LINEAL"),ancho,alto,font));
+        clases.get("TALLER O ACTIVIDAD").setSemestre(1);   //TALLER O ACTIVIDAD
+        cuadrosMecatronica1.add(3,new CuadroTexto(clases.get("TALLER O ACTIVIDAD"),ancho,alto,font));
+        clases.get("QUÍMICA").setSemestre(1);   //QUÍMICA
+        cuadrosMecatronica1.add(4,new CuadroTexto(clases.get("QUÍMICA"),ancho,alto,font));
+        clases.get("LIDERAZGO Y DESARROLLO").setSemestre(1);   //LIDERAZGO Y DESARROLLO
+        cuadrosMecatronica1.add(5,new CuadroTexto(clases.get("LIDERAZGO Y DESARROLLO"),ancho,alto,font));
+        clases.get("FORMACIÓN UNIVERSITARIA A").setSemestre(1);   //FORMACIÓN UNIVERSITARIA A
+        cuadrosMecatronica1.add(6,new CuadroTexto(clases.get("FORMACIÓN UNIVERSITARIA A"),ancho,alto,font));
+        clases.get("SER UNIVERSITARIO").setSemestre(1);   //SER UNIVERSITARIO
+        cuadrosMecatronica1.add(7,new CuadroTexto(clases.get("SER UNIVERSITARIO"),ancho,alto,font));
+        FINAL.add(0,cuadrosMecatronica1);
 
-        return clasesMap;  //REGRESAR LAS CLASES
+        clases.get("CÁLCULO INTEGRAL").setSemestre(2);   //CÁLCULO INTEGRAL
+        cuadrosMecatronica2.add(0,new CuadroTexto(clases.get("CÁLCULO INTEGRAL"),ancho,alto,font));
+        clases.get("PROBABILIDAD Y ESTADISTICA").setSemestre(2);   //ALGORITMOS
+        cuadrosMecatronica2.add(1,new CuadroTexto(clases.get("PROBABILIDAD Y ESTADISTICA"),ancho,alto,font));
+        clases.get("DISEÑO POR COMPUTADORA").setSemestre(2);   //ALGORITMOS
+        cuadrosMecatronica2.add(2,new CuadroTexto(clases.get("DISEÑO POR COMPUTADORA"),ancho,alto,font));
+        clases.get("ESTÁTICA").setSemestre(2);   //ALGORITMOS
+        cuadrosMecatronica2.add(3,new CuadroTexto(clases.get("ESTÁTICA"),ancho,alto,font));
+        clases.get("TALLER 2").setSemestre(2);   //ALGORITMOS
+        cuadrosMecatronica2.add(4,new CuadroTexto(clases.get("TALLER 2"),ancho,alto,font));
+        clases.get("ELECTIVA ANAHUAC").setSemestre(2);   //ALGORITMOS
+        cuadrosMecatronica2.add(5,new CuadroTexto(clases.get("ELECTIVA ANAHUAC"),ancho,alto,font));
+        clases.get("HABILIDADES PARA EL EMPRENDIMIENTO").setSemestre(2);   //ALGORITMOS
+        cuadrosMecatronica2.add(6,new CuadroTexto(clases.get("HABILIDADES PARA EL EMPRENDIMIENTO"),ancho,alto,font));
+        clases.get("ANTROPOLOGÍA FUNDAMENTAL").setSemestre(2);   //ALGORITMOS
+        cuadrosMecatronica2.add(7,new CuadroTexto(clases.get("ANTROPOLOGÍA FUNDAMENTAL"),ancho,alto,font));
+        FINAL.add(1,cuadrosMecatronica2);
+
+        clases.get("CÁLCULO MULTIVARIADO").setSemestre(3);   //CÁLCULO MULTIVARIADO
+        cuadrosMecatronica3.add(0,new CuadroTexto(clases.get("CÁLCULO MULTIVARIADO"),ancho,alto,font));
+        clases.get("ELECTIVA INTERDISCIPLINARIA").setSemestre(3);   //ELECTIVA INTERDISCIPLINARIA
+        cuadrosMecatronica3.add(1,new CuadroTexto(clases.get("ELECTIVA INTERDISCIPLINARIA"),ancho,alto,font));
+        clases.get("CIRCUITOS ELÉCTRICOS").setSemestre(3);   //CIRCUITOS ELÉCTRICOS
+        cuadrosMecatronica3.add(2,new CuadroTexto(clases.get("CIRCUITOS ELÉCTRICOS"),ancho,alto,font));
+        clases.get("DINÁMICA").setSemestre(3);   //DINÁMICA
+        cuadrosMecatronica3.add(3,new CuadroTexto(clases.get("DINÁMICA"),ancho,alto,font));
+        clases.get("TALLER3").setSemestre(3);   //TALLER3
+        cuadrosMecatronica3.add(4,new CuadroTexto(clases.get("TALLER3"),ancho,alto,font));
+        clases.get("ECUACIONES DIFERENCIALES").setSemestre(3);   //ECUACIONES DIFERENCIALES
+        cuadrosMecatronica3.add(5,new CuadroTexto(clases.get("ECUACIONES DIFERENCIALES"),ancho,alto,font));
+        clases.get("LIDERAZGO Y EQUIPO...").setSemestre(3);   //LIDERAZGO Y EQUIPO...
+        cuadrosMecatronica3.add(6,new CuadroTexto(clases.get("LIDERAZGO Y EQUIPO..."),ancho,alto,font));
+        clases.get("ÉTICA").setSemestre(3);   //ÉTICA
+        cuadrosMecatronica3.add(7,new CuadroTexto(clases.get("ÉTICA"),ancho,alto,font));
+        FINAL.add(2,cuadrosMecatronica3);
+
+        clases.get("MÉTODOS NUMÉRICOS").setSemestre(4);   //MÉTODOS NUMÉRICOS
+        cuadrosMecatronica4.add(0,new CuadroTexto(clases.get("MÉTODOS NUMÉRICOS"),ancho,alto,font));
+        clases.get("ELECTRICIDAD Y MAGNETISMO").setSemestre(4);   //ELECTRICIDAD Y MAGNETISMO
+        cuadrosMecatronica4.add(1,new CuadroTexto(clases.get("ELECTRICIDAD Y MAGNETISMO"),ancho,alto,font));
+        clases.get("PROGRAMACIÓN MICROCONTROLADORES").setSemestre(4);   //PROGRAMACIÓN MICROCONTROLADORES
+        cuadrosMecatronica4.add(2,new CuadroTexto(clases.get("PROGRAMACIÓN MICROCONTROLADORES"),ancho,alto,font));
+        clases.get("DISPOSITIVOS SEMICONDCTORES").setSemestre(4);   //DISPOSITIVOS SEMICONDCTORES
+        cuadrosMecatronica4.add(3,new CuadroTexto(clases.get("DISPOSITIVOS SEMICONDCTORES"),ancho,alto,font));
+        clases.get("INGENIERÍA DE MATERIALES").setSemestre(4);   //INGENIERÍA DE MATERIALES
+        cuadrosMecatronica4.add(4,new CuadroTexto(clases.get("INGENIERÍA DE MATERIALES"),ancho,alto,font));
+        clases.get("TERMODINÁMICA").setSemestre(4);   //TERMODINÁMICA
+        cuadrosMecatronica4.add(5,new CuadroTexto(clases.get("TERMODINÁMICA"),ancho,alto,font));
+        clases.get("EMPRENDIMIENTO E INNOVACIÓN").setSemestre(4);   //EMPRENDIMIENTO E INNOVACIÓN
+        cuadrosMecatronica4.add(6,new CuadroTexto(clases.get("EMPRENDIMIENTO E INNOVACIÓN"),ancho,alto,font));
+        clases.get("FORMACIÓN UNIVERSITARIA B").setSemestre(4);   //FORMACIÓN UNIVERSITARIA B
+        cuadrosMecatronica4.add(7,new CuadroTexto(clases.get("FORMACIÓN UNIVERSITARIA B"),ancho,alto,font));
+        FINAL.add(3,cuadrosMecatronica4);
+
+        clases.get("MEDICIÓN E INTRUMENTA...").setSemestre(5);   //MEDICIÓN E INTRUMENTA...
+        cuadrosMecatronica5.add(0,new CuadroTexto(clases.get("MEDICIÓN E INTRUMENTA..."),ancho,alto,font));
+        clases.get("SISTEMAS ELECTRONEUMA...").setSemestre(5);   //SISTEMAS ELECTRONEUMA...
+        cuadrosMecatronica5.add(1,new CuadroTexto(clases.get("SISTEMAS ELECTRONEUMA..."),ancho,alto,font));
+        clases.get("MECÁNICA DE MATERIALES").setSemestre(5);   //MECÁNICA DE MATERIALES
+        cuadrosMecatronica5.add(2,new CuadroTexto(clases.get("MECÁNICA DE MATERIALES"),ancho,alto,font));
+        clases.get("DISEÑO DE MECANISMOS").setSemestre(5);   //DISEÑO DE MECANISMOS
+        cuadrosMecatronica5.add(3,new CuadroTexto(clases.get("DISEÑO DE MECANISMOS"),ancho,alto,font));
+        clases.get("PROCESOS DE MANUFACTURA").setSemestre(5);   //PROCESOS DE MANUFACTURA
+        cuadrosMecatronica5.add(4,new CuadroTexto(clases.get("PROCESOS DE MANUFACTURA"),ancho,alto,font));
+        clases.get("TRANSFORMADAS INTEGRALES").setSemestre(5);   //TRANSFORMADAS INTEGRALES
+        cuadrosMecatronica5.add(5,new CuadroTexto(clases.get("TRANSFORMADAS INTEGRALES"),ancho,alto,font));
+        clases.get("ELECTIVA ANÁHUAC2").setSemestre(5);   //ELECTIVA ANÁHUAC2
+        cuadrosMecatronica5.add(6,new CuadroTexto(clases.get("ELECTIVA ANÁHUAC2"),ancho,alto,font));
+        clases.get("HUMANISMO CLÁSICO Y CONTEMPORÁNEO").setSemestre(5);   //HUMANISMO CLÁSICO Y CONTEMPORÁNEO
+        cuadrosMecatronica5.add(7,new CuadroTexto(clases.get("HUMANISMO CLÁSICO Y CONTEMPORÁNEO"),ancho,alto,font));
+        FINAL.add(4,cuadrosMecatronica5);
+
+        clases.get("ELECTIVA INTERDISCIPLINARIA2").setSemestre(6);   //ELECTIVA INTERDISCIPLINARIA2
+        cuadrosMecatronica6.add(0,new CuadroTexto(clases.get("ELECTIVA INTERDISCIPLINARIA2"),ancho,alto,font));
+        clases.get("MANUFACTURA ASISSTIDA POR COMPUTADORA").setSemestre(6);   //MANUFACTURA ASISSTIDA POR COMPUTADORA
+        cuadrosMecatronica6.add(1,new CuadroTexto(clases.get("MANUFACTURA ASISSTIDA POR COMPUTADORA"),ancho,alto,font));
+        clases.get("DISEÑO DE COMPONENTES MECÁNICOS").setSemestre(6);   //DISEÑO DE COMPONENTES MECÁNICOS
+        cuadrosMecatronica6.add(2,new CuadroTexto(clases.get("DISEÑO DE COMPONENTES MECÁNICOS"),ancho,alto,font));
+        clases.get("ELCTRÓNICA ANALÓGICA").setSemestre(6);   //ELCTRÓNICA ANALÓGICA
+        cuadrosMecatronica6.add(3,new CuadroTexto(clases.get("ELCTRÓNICA ANALÓGICA"),ancho,alto,font));
+        clases.get("CIRCUITOS DIGITALES").setSemestre(6);   //CIRCUITOS DIGITALES
+        cuadrosMecatronica6.add(4,new CuadroTexto(clases.get("CIRCUITOS DIGITALES"),ancho,alto,font));
+        clases.get("DINÁMICA DE SISTEMAS MECATRÓNICOS").setSemestre(6);   //DINÁMICA DE SISTEMAS MECATRÓNICOS
+        cuadrosMecatronica6.add(5,new CuadroTexto(clases.get("DINÁMICA DE SISTEMAS MECATRÓNICOS"),ancho,alto,font));
+        clases.get("ELECTIVA PROFESIONAL 1").setSemestre(6);   //ELECTIVA PROFESIONAL 1
+        cuadrosMecatronica6.add(6,new CuadroTexto(clases.get("ELECTIVA PROFESIONAL 1"),ancho,alto,font));
+        clases.get("PERSONA Y TRASCENDENCIA").setSemestre(6);   //PERSONA Y TRASCENDENCIA
+        cuadrosMecatronica6.add(7,new CuadroTexto(clases.get("PERSONA Y TRASCENDENCIA"),ancho,alto,font));
+        FINAL.add(5,cuadrosMecatronica6);
+
+        clases.get("MÁQUINAS ELÉTRICAS").setSemestre(7);   //MÁQUINAS ELÉTRICAS
+        cuadrosMecatronica7.add(0,new CuadroTexto(clases.get("MÁQUINAS ELÉTRICAS"),ancho,alto,font));
+        clases.get("AUTOMATIZACIÓN").setSemestre(7);   //AUTOMATIZACIÓN
+        cuadrosMecatronica7.add(1,new CuadroTexto(clases.get("AUTOMATIZACIÓN"),ancho,alto,font));
+        clases.get("GESSTIÓN DE PROYECTOS DE INVESTIGACIÓN Y PATENTAMIENTO").setSemestre(7);   //GESSTIÓN DE PROYECTOS DE INVESTIGACIÓN Y PATENTAMIENTO
+        cuadrosMecatronica7.add(2,new CuadroTexto(clases.get("GESSTIÓN DE PROYECTOS DE INVESTIGACIÓN Y PATENTAMIENTO"),ancho,alto,font));
+        clases.get("DISEÑO DE INTERFACES ANALÓGICAS Y DIGITALES").setSemestre(7);   //DISEÑO DE INTERFACES ANALÓGICAS Y DIGITALES
+        cuadrosMecatronica7.add(3,new CuadroTexto(clases.get("DISEÑO DE INTERFACES ANALÓGICAS Y DIGITALES"),ancho,alto,font));
+        clases.get("PROCESAMIENTO DIGITAL DE SEÑALES").setSemestre(7);   //PROCESAMIENTO DIGITAL DE SEÑALES
+        cuadrosMecatronica7.add(4,new CuadroTexto(clases.get("PROCESAMIENTO DIGITAL DE SEÑALES"),ancho,alto,font));
+        clases.get("CONTROL APLICADO").setSemestre(7);   //CONTROL APLICADO
+        cuadrosMecatronica7.add(5,new CuadroTexto(clases.get("CONTROL APLICADO"),ancho,alto,font));
+        clases.get("ELECTIVA PROFESIONAL 2").setSemestre(7);   //ELECTIVA PROFESIONAL 2
+        cuadrosMecatronica7.add(6,new CuadroTexto(clases.get("ELECTIVA PROFESIONAL 2"),ancho,alto,font));
+        clases.get("RESPONSABILIDAD SOCIAL").setSemestre(7);   //RESPONSABILIDAD SOCIAL
+        cuadrosMecatronica7.add(7,new CuadroTexto(clases.get("RESPONSABILIDAD SOCIAL"),ancho,alto,font));
+        FINAL.add(6,cuadrosMecatronica7);
+
+        clases.get("PRÁCTICUM I METODOLOGIA DISEÑO").setSemestre(8);   //PRÁCTICUM I METODOLOGIA DISEÑO
+        cuadrosMecatronica8.add(0,new CuadroTexto(clases.get("PRÁCTICUM I METODOLOGIA DISEÑO"),ancho,alto,font));
+        clases.get("SISTEMAS EMBEBIDOS").setSemestre(8);   //SISTEMAS EMBEBIDOS
+        cuadrosMecatronica8.add(1,new CuadroTexto(clases.get("SISTEMAS EMBEBIDOS"),ancho,alto,font));
+        clases.get("SISTEMAS DE VISIÓN INDUSTRIAL").setSemestre(8);   //SISTEMAS DE VISIÓN INDUSTRIAL
+        cuadrosMecatronica8.add(2,new CuadroTexto(clases.get("SISTEMAS DE VISIÓN INDUSTRIAL"),ancho,alto,font));
+        clases.get("ELECTRÓNICA DE POTENCIA").setSemestre(8);   //ELECTRÓNICA DE POTENCIA
+        cuadrosMecatronica8.add(3,new CuadroTexto(clases.get("ELECTRÓNICA DE POTENCIA"),ancho,alto,font));
+        clases.get("ROBÓTICA INDUSTRIAL Y DE SERVICIO").setSemestre(8);   //ROBÓTICA INDUSTRIAL Y DE SERVICIO
+        cuadrosMecatronica8.add(4,new CuadroTexto(clases.get("ROBÓTICA INDUSTRIAL Y DE SERVICIO"),ancho,alto,font));
+        clases.get("ELECTIVA PROFESIONAL 3").setSemestre(8);   //ELECTIVA PROFESIONAL 3
+        cuadrosMecatronica8.add(5,new CuadroTexto(clases.get("ELECTIVA PROFESIONAL 3"),ancho,alto,font));
+        FINAL.add(7,cuadrosMecatronica8);
+
+        clases.get("PRÁCTICUM II PROYECTO DE DISEÑO").setSemestre(9);   //PRÁCTICUM II PROYECTO DE DISEÑO
+        cuadrosMecatronica9.add(0,new CuadroTexto(clases.get("PRÁCTICUM II PROYECTO DE DISEÑO"),ancho,alto,font));
+        clases.get("INNOVACIÓN TECNOLÓGICA").setSemestre(9);   //INNOVACIÓN TECNOLÓGICA
+        cuadrosMecatronica9.add(1,new CuadroTexto(clases.get("INNOVACIÓN TECNOLÓGICA"),ancho,alto,font));
+        clases.get("REGIONAL").setSemestre(9);   //REGIONAL
+        cuadrosMecatronica9.add(2,new CuadroTexto(clases.get("REGIONAL"),ancho,alto,font));
+        clases.get("REGIONAL 2").setSemestre(9);   //REGIONAL 2
+        cuadrosMecatronica9.add(3,new CuadroTexto(clases.get("REGIONAL 2"),ancho,alto,font));
+        clases.get("ELECTIVA INTERDISCIPLINARIA3").setSemestre(9);   //ELECTIVA INTERDISCIPLINARIA3
+        cuadrosMecatronica9.add(4,new CuadroTexto(clases.get("ELECTIVA INTERDISCIPLINARIA3"),ancho,alto,font));
+        clases.get("ELECTIVA PROFESIONAL 4").setSemestre(9);   //ELECTIVA PROFESIONAL 4
+        cuadrosMecatronica9.add(5,new CuadroTexto(clases.get("ELECTIVA PROFESIONAL 4"),ancho,alto,font));
+        FINAL.add(8,cuadrosMecatronica9);
+        FINAL.add(9,cuadrosMecatronica10);
+
+        return FINAL;  //REGRESAR LAS CLASES
     }
     public static ArrayList<ArrayList<CuadroTexto>> CuadrosSemestre(ArrayList<CuadroTexto> cuadrosTexto) {
         ArrayList<ArrayList<CuadroTexto>> clasesSemestre = new ArrayList<>();

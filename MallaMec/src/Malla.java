@@ -4,7 +4,7 @@ import java.awt.event.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Map;
+
 
 public class Malla extends JPanel implements ActionListener, MouseListener, MouseMotionListener {
 
@@ -84,8 +84,8 @@ public class Malla extends JPanel implements ActionListener, MouseListener, Mous
         ge.registerFont(fuente1B);
         ge.registerFont(cuadroFuente);
 
-        Map<String,Clases> mapa = Clases.inicializarMecatronica(Clases.inicializarClases());
-        cuadrosSemestre = Clases.CuadrosSemestre(CuadroTexto.cuadrosLista(mapa,cuadroAncho,cuadroLargo,cuadroFuente));
+        cuadrosSemestre = Clases.inicializarMecatronica(Clases.inicializarClases(),cuadroAncho,cuadroLargo,cuadroFuente);
+
 
 
         // Iniciar el bucle de actualización para la animación, 120 FPS
@@ -146,7 +146,7 @@ public class Malla extends JPanel implements ActionListener, MouseListener, Mous
     public int centrarTextoX(int cuadroAncho, String texto, Font fuente, Graphics g) {
         FontMetrics metrics = g.getFontMetrics(fuente);
         int largoTexto = metrics.stringWidth(texto);
-        return (int) ((cuadroAncho - largoTexto) / 2);
+        return ((cuadroAncho - largoTexto) / 2);
     }
 
     public int alturaTexto(Font fuente, Graphics g) {
@@ -211,7 +211,7 @@ public class Malla extends JPanel implements ActionListener, MouseListener, Mous
                 if (estadoFocus != focused) {
                     cuadro.setFocused(focused);
 
-                    // Limpiar las listas de enfoque si se pierde el foco
+                    // Limpiar las listas de enfoques si se pierde el foco
                     if (!focused) {
                         claseFocusPost.clear();
                         claseFocusPre.clear();
