@@ -206,24 +206,68 @@ public class Malla extends JPanel implements ActionListener, MouseListener, Mous
             for (CuadroTexto cuadro : semestres) {
                 boolean estadoFocus = cuadro.isFocused();
                 boolean focused = isMouseOver(e.getX(), e.getY(), cuadro);
+
                 // Si hay un cambio de estado, actualiza y repinta
                 if (estadoFocus != focused) {
                     cuadro.setFocused(focused);
-                    if(cuadro.isFocused()){
-                        claseFocusPost = cuadro.getClase().getPostRequisitos();
-                        claseFocusPre = cuadro.getClase().getPreRequisitos();
-                        claseFocusCo = cuadro.getClase().getCoRequisitos();}
-                    else{claseFocusPre =new ArrayList<>();
-                        claseFocusCo =new ArrayList<>();
-                        claseFocusPost =new ArrayList<>();
-                    }
-                    repaint();
 
+                    // Limpiar las listas de enfoque si se pierde el foco
+                    if (!focused) {
+                        claseFocusPost.clear();
+                        claseFocusPre.clear();
+                        claseFocusCo.clear();
+                    }
+
+                    if (cuadro.isFocused()) {
+                        // Crear listas temporales para evitar error de añadir mientras iteras en una lista(NO SE PUEDE)
+                        ArrayList<Clases> tempFocusPost = new ArrayList<>(cuadro.getClase().getPostRequisitos());
+                        ArrayList<Clases> tempFocusPre = new ArrayList<>(cuadro.getClase().getPreRequisitos());
+                        ArrayList<Clases> tempFocusCo = new ArrayList<>(cuadro.getClase().getCoRequisitos());
+
+                        // Añadir los posrequisitos a la lista principal sin duplicados
+                        for (Clases clase : tempFocusPost) {
+                            if (!claseFocusPost.contains(clase)) {
+                                claseFocusPost.add(clase);
+                            }
+                            // Añadir los posrequisitos adicionales sin duplicados
+                            for (Clases postRequisito : clase.getPostRequisitos()) {
+                                if (!claseFocusPost.contains(postRequisito)) {
+                                    claseFocusPost.add(postRequisito);
+                                }
+                            }
+                        }
+
+                        // Añadir los prerequisitos a la lista principal sin duplicados
+                        for (Clases clase : tempFocusPre) {
+                            if (!claseFocusPre.contains(clase)) {
+                                claseFocusPre.add(clase);
+                            }
+                            // Añadir los prerequisitos adicionales sin duplicados
+                            for (Clases preRequisito : clase.getPreRequisitos()) {
+                                if (!claseFocusPre.contains(preRequisito)) {
+                                    claseFocusPre.add(preRequisito);
+                                }
+                            }
+                        }
+
+                        // Añadir los corequisitos a la lista principal sin duplicados
+                        for (Clases clase : tempFocusCo) {
+                            if (!claseFocusCo.contains(clase)) {
+                                claseFocusCo.add(clase);
+                            }
+                            // Añadir los corequisitos adicionales sin duplicados
+                            for (Clases coRequisito : clase.getCoRequisitos()) {
+                                if (!claseFocusCo.contains(coRequisito)) {
+                                    claseFocusCo.add(coRequisito);
+                                }
+                            }
+                        }
+                    }
+
+                    repaint(); // Repintar la interfaz con los cambios
                 }
             }
         }
-
-
-
     }
+
 }
