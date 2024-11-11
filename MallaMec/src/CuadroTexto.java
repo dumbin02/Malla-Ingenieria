@@ -53,7 +53,7 @@ public class CuadroTexto {
     public void pintarFocused(int x,int y, Graphics2D g) {
         ((Graphics2D) g).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         // dibujar cuadrito
-        ((Graphics2D) g).setColor(new Color(255, 255, 255,120));
+        ((Graphics2D) g).setColor(new Color(255, 255, 255));
         ((Graphics2D) g).fillRect(x, y, ancho-10, alto);
         // dibujar borde cuadrito
         ((Graphics2D) g).setColor(Color.BLACK);
@@ -80,7 +80,7 @@ public class CuadroTexto {
     public void pintarPost(int x,int y, Graphics2D g) {
         ((Graphics2D) g).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         // dibujar cuadrito
-        ((Graphics2D) g).setColor(new Color(31, 110, 5,150));
+        ((Graphics2D) g).setColor(new Color(31, 110, 5,200));
         ((Graphics2D) g).fillRect(x, y, ancho-10, alto);
         // dibujar borde cuadrito
         ((Graphics2D) g).setColor(Color.BLACK);
@@ -107,7 +107,7 @@ public class CuadroTexto {
     public void pintarPre(int x,int y, Graphics2D g) {
         ((Graphics2D) g).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         // dibujar cuadrito
-        ((Graphics2D) g).setColor(new Color(179, 5, 72,150));
+        ((Graphics2D) g).setColor(new Color(179, 5, 72,200));
         ((Graphics2D) g).fillRect(x, y, ancho-10, alto);
         // dibujar borde cuadrito
         ((Graphics2D) g).setColor(Color.BLACK);
@@ -134,7 +134,7 @@ public class CuadroTexto {
     public void pintarCo(int x,int y, Graphics2D g) {
         ((Graphics2D) g).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         // dibujar cuadrito
-        ((Graphics2D) g).setColor(new Color(241, 194, 0,150));
+        ((Graphics2D) g).setColor(new Color(255, 255, 255));
         ((Graphics2D) g).fillRect(x, y, ancho-10, alto);
         // dibujar borde cuadrito
         ((Graphics2D) g).setColor(Color.BLACK);

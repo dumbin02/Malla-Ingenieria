@@ -29,13 +29,13 @@ public class Clases {
     }
 
     public static Map<String, Clases> inicializarClases() {
-        Color bloqueProfCol = new Color(128, 197, 198, 150);
-        Color tallerCol = new Color(195, 126, 16, 150);
-        Color bloqueAnahuacCol = new Color(248, 122, 12, 150);
-        Color bloqueInterCol = new Color(253, 172, 135, 150);
-        Color electivaCol = new Color(112, 34, 255, 150);
-        Color electivaAnaCol = new Color(255, 245, 20, 150);
-        Color electivaProfCol = new Color(255, 0, 0, 150);
+        Color bloqueProfCol = new Color(102, 147, 168, 200);
+        Color tallerCol = new Color(137, 151, 116, 200);
+        Color bloqueAnahuacCol = new Color(229, 156, 62, 200);
+        Color bloqueInterCol = new Color(218, 124, 144, 200);
+        Color electivaCol = new Color(77, 65, 122, 200);
+        Color electivaAnaCol = new Color(221, 181, 65, 200);
+        Color electivaProfCol = new Color(178, 63, 63, 200);
 
 
         //Iniciar array que devolveremos con nuestras clases
@@ -289,6 +289,10 @@ public class Clases {
         cuadrosMecatronica1.add(6,new CuadroTexto(clases.get("FORMACIÓN UNIVERSITARIA A"),ancho,alto,font));
         clases.get("SER UNIVERSITARIO").setSemestre(1);   //SER UNIVERSITARIO
         cuadrosMecatronica1.add(7,new CuadroTexto(clases.get("SER UNIVERSITARIO"),ancho,alto,font));
+        clases.get("SER UNIVERSITARIO").setSemestre(1);   //SER UNIVERSITARIO
+        cuadrosMecatronica1.add(8,new CuadroTexto(clases.get("SER UNIVERSITARIO"),ancho,alto,font));
+        clases.get("SER UNIVERSITARIO").setSemestre(1);   //SER UNIVERSITARIO
+        cuadrosMecatronica1.add(9,new CuadroTexto(clases.get("SER UNIVERSITARIO"),ancho,alto,font));
         FINAL.add(0,cuadrosMecatronica1);
 
         clases.get("CÁLCULO INTEGRAL").setSemestre(2);   //CÁLCULO INTEGRAL

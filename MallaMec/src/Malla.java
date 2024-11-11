@@ -43,7 +43,7 @@ public class Malla extends JPanel implements ActionListener, MouseListener, Mous
         cuadroLargo = fondoLargo / 12;
 
         // Cargar la imagen de fondo y calcular su relación de aspecto
-        backgroundImg = new ImageIcon(getClass().getResource("background2.jpg")).getImage();
+        backgroundImg = new ImageIcon(getClass().getResource("HOWWLL.jpg")).getImage();
         backgroundOriginalAncho = backgroundImg.getWidth(null);
         backgroundOriginalLargo = backgroundImg.getHeight(null);
         aspectRatio = (double) backgroundOriginalAncho / backgroundOriginalLargo;
@@ -74,7 +74,7 @@ public class Malla extends JPanel implements ActionListener, MouseListener, Mous
         fuente1 = Font.createFont(Font.TRUETYPE_FONT, fontStream).deriveFont(23f);
 
         fontStream = getClass().getResourceAsStream("/prmR.ttf");
-        fuente1B = Font.createFont(Font.TRUETYPE_FONT, fontStream).deriveFont(40f);
+        fuente1B = Font.createFont(Font.TRUETYPE_FONT, fontStream).deriveFont(35f);
 
         fontStream = getClass().getResourceAsStream("/Helvetica Bold Condensed.otf");
         cuadroFuente = Font.createFont(Font.TRUETYPE_FONT, fontStream).deriveFont(11f);
@@ -108,33 +108,33 @@ public class Malla extends JPanel implements ActionListener, MouseListener, Mous
 
         // Título
         g.setFont(fuente1B);
-        g.setColor(Color.GRAY.darker().darker());
+        g.setColor(Color.BLACK.darker().darker());
         g.drawString("Malla Mecatronica", centrarTextoX(fondoAncho, "Malla Mecatronica", fuente1B, g), 15 + alturaTexto(fuente1B, g));
 
         // Líneas y semestres
         Graphics2D g2d = (Graphics2D) g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         GradientPaint gradientPaint = new GradientPaint(0, 0, Color.black.brighter(), 0, 800, Color.red.darker());
-        g.setFont(fuente1B);
+        g.setFont(fuente1);
 
         for (int i = 1; i < 11; i++) {
-            g.setColor(Color.GRAY.darker().darker());
-            g.drawString(i + ".°", ((cuadroAncho) - (anchoTexto(String.valueOf(i), fuente1, g))) / 2 + ((i - 1) * (cuadroAncho)), 80 - alturaTexto(fuente1, g));
+            g.setColor(Color.BLACK.darker().darker());
+            g.drawString(i + ".°", ((cuadroAncho) - (anchoTexto(String.valueOf(i), fuente1, g))) / 2 + ((i - 1) * (cuadroAncho)), 60 - alturaTexto(fuente1, g));
             g2d.setPaint(gradientPaint);
             g2d.setStroke(new BasicStroke(3, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
             if (i != 10) {
-                g2d.drawLine((cuadroAncho) * i, 100, (cuadroAncho) * i, fondoLargo - 40);
+                g2d.drawLine((cuadroAncho) * i, 70, (cuadroAncho) * i, fondoLargo - 70);
             }
         }
         //test de materia no terminado
         for(int i=0; i<10; i++){
             int j =0;
             for(CuadroTexto cuadro:cuadrosSemestre.get(i)){
-                if(cuadro.isFocused()){cuadro.pintarFocused(5+(i*cuadroAncho),85+j*(cuadroLargo+5),g2d);cuadro.setX(5+(i*cuadroAncho));cuadro.setY(85+j*(cuadroLargo+5));}
-                else if(claseFocusPost.contains(cuadro.getClase())){cuadro.pintarPost(5+(i*cuadroAncho),85+j*(cuadroLargo+5),g2d);cuadro.setX(5+(i*cuadroAncho));cuadro.setY(85+j*(cuadroLargo+5));}
-                else if(claseFocusPre.contains(cuadro.getClase())){cuadro.pintarPre(5+(i*cuadroAncho),85+j*(cuadroLargo+5),g2d);cuadro.setX(5+(i*cuadroAncho));cuadro.setY(85+j*(cuadroLargo+5));}
-                else if(claseFocusCo.contains(cuadro.getClase())){cuadro.pintarCo(5+(i*cuadroAncho),85+j*(cuadroLargo+5),g2d);cuadro.setX(5+(i*cuadroAncho));cuadro.setY(85+j*(cuadroLargo+5));}
-                else{cuadro.pintarCuadro( 5+(i*cuadroAncho),85+j*(cuadroLargo+5),g2d);cuadro.setX(5+(i*cuadroAncho));cuadro.setY(85+j*(cuadroLargo+5));}
+                if(cuadro.isFocused()){cuadro.pintarFocused(5+(i*cuadroAncho),65+j*(cuadroLargo+3),g2d);cuadro.setX(5+(i*cuadroAncho));cuadro.setY(65+j*(cuadroLargo+3));}
+                else if(claseFocusPost.contains(cuadro.getClase())){cuadro.pintarPost(5+(i*cuadroAncho),65+j*(cuadroLargo+3),g2d);cuadro.setX(5+(i*cuadroAncho));cuadro.setY(65+j*(cuadroLargo+3));}
+                else if(claseFocusPre.contains(cuadro.getClase())){cuadro.pintarPre(5+(i*cuadroAncho),65+j*(cuadroLargo+3),g2d);cuadro.setX(5+(i*cuadroAncho));cuadro.setY(65+j*(cuadroLargo+3));}
+                else if(claseFocusCo.contains(cuadro.getClase())){cuadro.pintarCo(5+(i*cuadroAncho),65+j*(cuadroLargo+3),g2d);cuadro.setX(5+(i*cuadroAncho));cuadro.setY(65+j*(cuadroLargo+3));}
+                else{cuadro.pintarCuadro( 5+(i*cuadroAncho),65+j*(cuadroLargo+3),g2d);cuadro.setX(5+(i*cuadroAncho));cuadro.setY(65+j*(cuadroLargo+3));}
 
                 j++;
             }
