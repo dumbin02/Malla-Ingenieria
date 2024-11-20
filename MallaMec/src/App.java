@@ -4,19 +4,6 @@ import java.util.Map;
 public class App {
 public static void main(String[] args) throws Exception {
 
-
-    /*Map<String,Clases> mapa = Clases.inicializarMecatronica(Clases.inicializarClases());
-    for (Clases clase : mapa.values()) {
-        System.out.println(clase.getClase());
-        System.out.println(clase.getNombre());
-        System.out.println(clase.getSemestre());
-        System.out.println(clase.getColor());
-        System.out.println(clase.getCoRequisitos().toString());
-        System.out.println(clase.getPostRequisitos().toString());
-        System.out.println(clase.getPreRequisitos().toString());
-        System.out.println(clase.getCreditos()+"\n");
-    }*/
-
     JFrame frame = new JFrame("Malla Ingenieria Mecatronica");
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Cerrar al salir
 

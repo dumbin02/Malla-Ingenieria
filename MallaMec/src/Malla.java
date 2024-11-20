@@ -32,6 +32,10 @@ public class Malla extends JPanel implements ActionListener, MouseListener, Mous
 
     ArrayList<ArrayList<CuadroTexto>> cuadrosSemestre;
 
+    CuadroTexto cuadritoDragged;
+    int mouseX=0;
+    int mouseY=0;
+
 
 
     // Constructor de malla
@@ -88,8 +92,8 @@ public class Malla extends JPanel implements ActionListener, MouseListener, Mous
 
 
 
-        // Iniciar el bucle de actualización para la animación, 120 FPS
-        gameLoop = new Timer(1000 / 60, this);
+        // Iniciar el bucle de actualización para la animación, 60 FPS
+        gameLoop = new Timer(1000 / 120, this);
         gameLoop.start();
         addMouseListener(this);
         addMouseMotionListener(this);
@@ -114,7 +118,7 @@ public class Malla extends JPanel implements ActionListener, MouseListener, Mous
         // Líneas y semestres
         Graphics2D g2d = (Graphics2D) g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        GradientPaint gradientPaint = new GradientPaint(0, 0, Color.black.brighter(), 0, 800, Color.red.darker());
+        GradientPaint gradientPaint = new GradientPaint(0, 0, new Color(0, 0, 0), 0, 800, new Color(16, 89, 0));
         g.setFont(fuente1);
 
         for (int i = 1; i < 11; i++) {
@@ -123,21 +127,27 @@ public class Malla extends JPanel implements ActionListener, MouseListener, Mous
             g2d.setPaint(gradientPaint);
             g2d.setStroke(new BasicStroke(3, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
             if (i != 10) {
-                g2d.drawLine((cuadroAncho) * i, 70, (cuadroAncho) * i, fondoLargo - 70);
+                g2d.drawLine((cuadroAncho) * i, 70, (cuadroAncho) * i, fondoLargo - 52);
             }
         }
         //test de materia no terminado
         for(int i=0; i<10; i++){
             int j =0;
             for(CuadroTexto cuadro:cuadrosSemestre.get(i)){
-                if(cuadro.isFocused()){cuadro.pintarFocused(5+(i*cuadroAncho),65+j*(cuadroLargo+3),g2d);cuadro.setX(5+(i*cuadroAncho));cuadro.setY(65+j*(cuadroLargo+3));}
-                else if(claseFocusPost.contains(cuadro.getClase())){cuadro.pintarPost(5+(i*cuadroAncho),65+j*(cuadroLargo+3),g2d);cuadro.setX(5+(i*cuadroAncho));cuadro.setY(65+j*(cuadroLargo+3));}
-                else if(claseFocusPre.contains(cuadro.getClase())){cuadro.pintarPre(5+(i*cuadroAncho),65+j*(cuadroLargo+3),g2d);cuadro.setX(5+(i*cuadroAncho));cuadro.setY(65+j*(cuadroLargo+3));}
-                else if(claseFocusCo.contains(cuadro.getClase())){cuadro.pintarCo(5+(i*cuadroAncho),65+j*(cuadroLargo+3),g2d);cuadro.setX(5+(i*cuadroAncho));cuadro.setY(65+j*(cuadroLargo+3));}
-                else{cuadro.pintarCuadro( 5+(i*cuadroAncho),65+j*(cuadroLargo+3),g2d);cuadro.setX(5+(i*cuadroAncho));cuadro.setY(65+j*(cuadroLargo+3));}
+
+                if(cuadro.isFocused()&&!cuadro.isDragged()){cuadro.pintarFocused(5+(i*cuadroAncho),65+j*(cuadroLargo+3),g2d);cuadro.setX(5+(i*cuadroAncho));cuadro.setY(65+j*(cuadroLargo+3));}
+                else if(claseFocusPost.contains(cuadro.getClase())&&!cuadro.isDragged())
+                {cuadro.pintarPost(5+(i*cuadroAncho),65+j*(cuadroLargo+3),g2d);cuadro.setX(5+(i*cuadroAncho));cuadro.setY(65+j*(cuadroLargo+3));}
+                else if(claseFocusPre.contains(cuadro.getClase())&&!cuadro.isDragged())
+                {cuadro.pintarPre(5+(i*cuadroAncho),65+j*(cuadroLargo+3),g2d);cuadro.setX(5+(i*cuadroAncho));cuadro.setY(65+j*(cuadroLargo+3));}
+                else if(claseFocusCo.contains(cuadro.getClase())&&!cuadro.isDragged())
+                {cuadro.pintarCo(5+(i*cuadroAncho),65+j*(cuadroLargo+3),g2d);cuadro.setX(5+(i*cuadroAncho));cuadro.setY(65+j*(cuadroLargo+3));}
+                else if(!cuadro.isDragged())
+                {cuadro.pintarCuadro( 5+(i*cuadroAncho),65+j*(cuadroLargo+3),g2d);cuadro.setX(5+(i*cuadroAncho));cuadro.setY(65+j*(cuadroLargo+3));}
+
 
                 j++;
-            }
+            }   if(cuadritoDragged != null){cuadritoDragged.pintarFocused(mouseX,mouseY,g2d);}
         }
 
     }
@@ -166,7 +176,7 @@ public class Malla extends JPanel implements ActionListener, MouseListener, Mous
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        //repaint();
+        repaint();
     }
 
     @Override
@@ -176,11 +186,31 @@ public class Malla extends JPanel implements ActionListener, MouseListener, Mous
 
     @Override
     public void mousePressed(MouseEvent e) {
+        for (ArrayList<CuadroTexto> semestres : cuadrosSemestre) {
+            for (CuadroTexto cuadro : semestres) {
+                if(cuadro.isFocused()){
+                    cuadritoDragged = cuadro;
+                    cuadro.setDragged(true);
+                    mouseX = e.getX()-cuadroAncho/2;
+                    mouseY = e.getY()-cuadroLargo/2;
 
+                }
+            }
+        }
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
+
+        claseFocusPost.clear();
+        claseFocusPre.clear();
+        claseFocusCo.clear();
+        if(cuadritoDragged!=null){
+            cuadritoDragged.setFocused(false);
+            cuadritoDragged.setDragged(false);
+            cuadritoDragged = null;}
+        
+
 
     }
 
@@ -196,7 +226,8 @@ public class Malla extends JPanel implements ActionListener, MouseListener, Mous
 
     @Override
     public void mouseDragged(MouseEvent e) {
-
+        mouseX = e.getX()-cuadroAncho/2;
+        mouseY = e.getY()-cuadroLargo/2;
     }
 
     @Override

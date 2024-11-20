@@ -12,6 +12,7 @@ public class CuadroTexto {
     public int y;         // Poscicion y
     private Font font;
     private boolean isFocused;
+    private boolean isDragged;
 
     CuadroTexto(Clases clase, int ancho, int alto, Font font ) {
         this.clase = clase;
@@ -21,6 +22,7 @@ public class CuadroTexto {
         this.y = 0;
         this.font = font;
         this.isFocused = false;
+        this.isDragged = false;
     }
 
     public void pintarCuadro(int x,int y, Graphics2D g) {
@@ -37,16 +39,17 @@ public class CuadroTexto {
         ((Graphics2D) g).setFont(font);
         FontMetrics metrics = ((Graphics2D) g).getFontMetrics(font);
 
-        int alturaStrings = metrics.getAscent()*3;
+        int alturaStrings = metrics.getAscent()*2;
         int yName =y+metrics.getAscent()+(alto-alturaStrings)/2;
         //int yName2 = yName+metrics.getAscent();
-        int yCredits =yName+metrics.getAscent();
-        int yID =yCredits+metrics.getAscent();
+        int yID =yName+metrics.getAscent();
 
 
         drawCenteredString((Graphics2D) g, clase.getNombre(), ancho-10, x, yName, metrics);
-        drawCenteredString((Graphics2D) g, "Creditos: " + clase.getCreditos(), ancho-10, x, yCredits, metrics);
-        drawCenteredString((Graphics2D) g, "ID: " + clase.getClase(), ancho-10, x, yID, metrics);
+        g.drawString(clase.getCreditos(),x+ancho-40,y+alto-3);
+        if (!clase.getClase().equalsIgnoreCase("")) {
+            drawCenteredString((Graphics2D) g, "ID: " + clase.getClase(), ancho-10, x, yID, metrics);
+        }
         this.x=x;
         this.y=y;
     }
@@ -73,6 +76,7 @@ public class CuadroTexto {
 
         drawCenteredString((Graphics2D) g, clase.getNombre(), ancho-10, x, yName, metrics);
         drawCenteredString((Graphics2D) g, "Creditos: " + clase.getCreditos(), ancho-10, x, yCredits, metrics);
+        g.drawString(clase.getCreditos(),x+ancho,y+alto);
         drawCenteredString((Graphics2D) g, "ID: " + clase.getClase(), ancho-10, x, yID, metrics);
         this.x=x;
         this.y=y;
@@ -100,6 +104,7 @@ public class CuadroTexto {
 
         drawCenteredString((Graphics2D) g, clase.getNombre(), ancho-10, x, yName, metrics);
         drawCenteredString((Graphics2D) g, "Creditos: " + clase.getCreditos(), ancho-10, x, yCredits, metrics);
+        g.drawString(clase.getCreditos(),x+ancho,y+alto);
         drawCenteredString((Graphics2D) g, "ID: " + clase.getClase(), ancho-10, x, yID, metrics);
         this.x=x;
         this.y=y;
@@ -127,6 +132,7 @@ public class CuadroTexto {
 
         drawCenteredString((Graphics2D) g, clase.getNombre(), ancho-10, x, yName, metrics);
         drawCenteredString((Graphics2D) g, "Creditos: " + clase.getCreditos(), ancho-10, x, yCredits, metrics);
+        g.drawString(clase.getCreditos(),x+ancho,y+alto);
         drawCenteredString((Graphics2D) g, "ID: " + clase.getClase(), ancho-10, x, yID, metrics);
         this.x=x;
         this.y=y;
@@ -154,6 +160,7 @@ public class CuadroTexto {
 
         drawCenteredString((Graphics2D) g, clase.getNombre(), ancho-10, x, yName, metrics);
         drawCenteredString((Graphics2D) g, "Creditos: " + clase.getCreditos(), ancho-10, x, yCredits, metrics);
+        g.drawString(clase.getCreditos(),x+ancho,y+alto);
         drawCenteredString((Graphics2D) g, "ID: " + clase.getClase(), ancho-10, x, yID, metrics);
         this.x=x;
         this.y=y;
@@ -191,10 +198,13 @@ public class CuadroTexto {
         return isFocused;
     }
     public void setFocused(boolean focused) {
-        if(focused){
-
-        }
         isFocused = focused;
+    }
+    public boolean isDragged() {
+        return isDragged;
+    }
+    public void setDragged(boolean dragged) {
+        isDragged = dragged;
     }
 
 }

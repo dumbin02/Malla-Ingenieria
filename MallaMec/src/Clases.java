@@ -30,11 +30,11 @@ public class Clases {
 
     public static Map<String, Clases> inicializarClases() {
         Color bloqueProfCol = new Color(102, 147, 168, 200);
-        Color tallerCol = new Color(137, 151, 116, 200);
+        Color tallerCol = new Color(173, 182, 49, 150);
         Color bloqueAnahuacCol = new Color(229, 156, 62, 200);
         Color bloqueInterCol = new Color(218, 124, 144, 200);
         Color electivaCol = new Color(77, 65, 122, 200);
-        Color electivaAnaCol = new Color(221, 181, 65, 200);
+        Color electivaAnaCol = new Color(239, 184, 16, 200);
         Color electivaProfCol = new Color(178, 63, 63, 200);
 
 
@@ -49,7 +49,7 @@ public class Clases {
         //CALCULO MULTIVARIADO
         clasesMap.put("CÁLCULO MULTIVARIADO", new Clases("MAT2401", "CÁLCULO MULTIVARIADO", 6, bloqueProfCol));
         //METODOS NUMERICOS
-        clasesMap.put("MÉTODOS NUMÉRICOS", new Clases("MAT3402", "MÉTODOS NUMÉRICOS", 3.5, bloqueProfCol));
+        clasesMap.put("MÉTODOS NUMÉRICOS", new Clases("MAT3402", "MÉTODOS NUMÉRICOS", 4.5, bloqueProfCol));
         //ÁlGEBRA LINEAL
         clasesMap.put("ÁlGEBRA LINEAL", new Clases("MAT1404", "ÁlGEBRA LINEAL", 6, bloqueProfCol));
         //ALGORITMOS Y PROGRAMACION
@@ -248,6 +248,29 @@ public class Clases {
         clasesMap.get("INGENIERÍA DE MATERIALES").postRequisitos.add(clasesMap.get("PROCESOS DE MANUFACTURA"));
         //EMPRENDIMIENTO E INNOVACIÓN
         clasesMap.get("EMPRENDIMIENTO E INNOVACIÓN").preRequisitos.add(clasesMap.get("HABILIDADES PARA EL EMPRENDIMIENTO"));
+        //MEDICIÓN E INTRUMENTA...
+        clasesMap.get("MEDICIÓN E INTRUMENTA...").preRequisitos.add(clasesMap.get("CIRCUITOS ELÉCTRICOS"));
+        //SISTEMAS ELECTRONEUMA...
+        clasesMap.get("SISTEMAS ELECTRONEUMA...").postRequisitos.add(clasesMap.get("AUTOMATIZACIÓN"));
+        //MECÁNICA DE MATERIALES
+        clasesMap.get("MECÁNICA DE MATERIALES").preRequisitos.add(clasesMap.get("ESTÁTICA"));
+        clasesMap.get("MECÁNICA DE MATERIALES").postRequisitos.add(clasesMap.get("DISEÑO DE COMPONENTES MECÁNICOS"));
+        //DISEÑO DE MECANISMOS
+        clasesMap.get("DISEÑO DE MECANISMOS").preRequisitos.add(clasesMap.get("DINÁMICA"));
+        //PROCESOS DE MANUFACTURA
+        clasesMap.get("PROCESOS DE MANUFACTURA").preRequisitos.add(clasesMap.get("INGENIERÍA DE MATERIALES"));
+        clasesMap.get("PROCESOS DE MANUFACTURA").postRequisitos.add(clasesMap.get("MANUFACTURA ASISSTIDA POR COMPUTADORA"));
+        //TRANSFORMADAS INTEGRALES
+        clasesMap.get("TRANSFORMADAS INTEGRALES").preRequisitos.add(clasesMap.get("ECUACIONES DIFERENCIALES"));
+        clasesMap.get("TRANSFORMADAS INTEGRALES").postRequisitos.add(clasesMap.get("PROCESAMIENTO DIGITAL DE SEÑALES"));
+        //HUMANISMO CLÁSICO Y CONTEMPORÁNEO
+        clasesMap.get("HUMANISMO CLÁSICO Y CONTEMPORÁNEO").preRequisitos.add(clasesMap.get("ÉTICA"));
+        //TRANSFORMADAS INTEGRALES
+        clasesMap.get("TRANSFORMADAS INTEGRALES").preRequisitos.add(clasesMap.get("ECUACIONES DIFERENCIALES"));
+        clasesMap.get("TRANSFORMADAS INTEGRALES").postRequisitos.add(clasesMap.get("PROCESAMIENTO DIGITAL DE SEÑALES"));
+        //TRANSFORMADAS INTEGRALES
+        clasesMap.get("TRANSFORMADAS INTEGRALES").preRequisitos.add(clasesMap.get("ECUACIONES DIFERENCIALES"));
+        clasesMap.get("TRANSFORMADAS INTEGRALES").postRequisitos.add(clasesMap.get("PROCESAMIENTO DIGITAL DE SEÑALES"));
 
 
         
@@ -289,10 +312,6 @@ public class Clases {
         cuadrosMecatronica1.add(6,new CuadroTexto(clases.get("FORMACIÓN UNIVERSITARIA A"),ancho,alto,font));
         clases.get("SER UNIVERSITARIO").setSemestre(1);   //SER UNIVERSITARIO
         cuadrosMecatronica1.add(7,new CuadroTexto(clases.get("SER UNIVERSITARIO"),ancho,alto,font));
-        clases.get("SER UNIVERSITARIO").setSemestre(1);   //SER UNIVERSITARIO
-        cuadrosMecatronica1.add(8,new CuadroTexto(clases.get("SER UNIVERSITARIO"),ancho,alto,font));
-        clases.get("SER UNIVERSITARIO").setSemestre(1);   //SER UNIVERSITARIO
-        cuadrosMecatronica1.add(9,new CuadroTexto(clases.get("SER UNIVERSITARIO"),ancho,alto,font));
         FINAL.add(0,cuadrosMecatronica1);
 
         clases.get("CÁLCULO INTEGRAL").setSemestre(2);   //CÁLCULO INTEGRAL
@@ -464,8 +483,8 @@ public class Clases {
     public void setNombre(String Nombre) {
         this.Nombre = Nombre;
     }
-    public double getCreditos() {
-        return Creditos;
+    public String getCreditos() {
+        return String.valueOf(Creditos);
     }
     public void setCreditos(double Creditos) {
         this.Creditos = Creditos;
